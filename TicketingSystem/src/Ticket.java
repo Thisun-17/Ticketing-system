@@ -1,16 +1,16 @@
+// Ticket.java
 public class Ticket {
-    private int ticketId;
+    private int ticketId;    // Changed from String to int
     private double price;
-    private String status; // "available" or "sold"
+    private boolean isAvailable;
 
-    // Constructor
-    public Ticket(int ticketId, double price) {
+    public Ticket(int ticketId, double price) {  // Changed parameter type to int
         this.ticketId = ticketId;
         this.price = price;
-        this.status = "available";
+        this.isAvailable = true;
     }
 
-    // Getters and setters
+    // Updated getter to return int
     public int getTicketId() {
         return ticketId;
     }
@@ -19,11 +19,11 @@ public class Ticket {
         return price;
     }
 
-    public String getStatus() {
-        return status;
+    public boolean isAvailable() {
+        return isAvailable;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setAvailable(boolean available) {
+        isAvailable = available;
     }
 }
