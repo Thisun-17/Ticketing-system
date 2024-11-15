@@ -6,27 +6,28 @@ public class Main {
 
         // Create vendors
         Vendor vendor1 = new Vendor(1, 3);  // Vendor 1 releases 3 tickets at a time
-        Vendor vendor2 = new Vendor(2, 2);  // Vendor 2 releases 2 tickets at a time
 
-        System.out.println("Testing Vendor System:");
+        // Create customers
+        Customer customer1 = new Customer(1);
+        Customer customer2 = new Customer(2);
+
+        System.out.println("Testing Ticket System:");
         System.out.println("Initial available tickets: " + ticketPool.getAvailableTickets());
 
-        // Test vendor1
-        System.out.println("\nVendor 1 releasing tickets...");
+        // Vendor releases tickets
+        System.out.println("\nVendor releasing tickets...");
         vendor1.releaseTickets(ticketPool);
-        System.out.println("After Vendor 1:");
         System.out.println("Available tickets: " + ticketPool.getAvailableTickets());
-        System.out.println("Vendor 1 total released: " + vendor1.getTotalTicketsReleased());
 
-        // Test vendor2
-        System.out.println("\nVendor 2 releasing tickets...");
-        vendor2.releaseTickets(ticketPool);
-        System.out.println("After Vendor 2:");
+        // Customers purchase tickets
+        System.out.println("\nCustomers purchasing tickets...");
+        customer1.purchaseTicket(ticketPool);
+        customer2.purchaseTicket(ticketPool);
+
+        // Print final status
+        System.out.println("\nFinal Status:");
         System.out.println("Available tickets: " + ticketPool.getAvailableTickets());
-        System.out.println("Vendor 2 total released: " + vendor2.getTotalTicketsReleased());
-
-        System.out.println("\nFinal Pool Status:");
-        System.out.println("Total tickets in pool: " + ticketPool.getAvailableTickets());
-        System.out.println("Total tickets processed: " + ticketPool.getTotalTicketsProcessed());
+        System.out.println("Customer 1 tickets: " + customer1.getPurchasedTickets().size());
+        System.out.println("Customer 2 tickets: " + customer2.getPurchasedTickets().size());
     }
 }
